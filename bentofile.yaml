@@ -1,6 +1,5 @@
 service: "src.service:svc"
 name: admission_service
-version: "1.0.0.0"
 
 description: "Predict the chance of admission of a student to a university"
 
