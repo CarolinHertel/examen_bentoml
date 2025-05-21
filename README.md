@@ -2,27 +2,44 @@
 
 Ce repertoire contient l'architecture basique afin de rendre l'évaluation pour l'examen BentoML.
 
-Vous êtes libres d'ajouter d'autres dossiers ou fichiers si vous jugez utile de le faire.
+## Deliverable 1: Instructions
 
-Voici comment est construit le dossier de rendu de l'examen:
+### 1. Décompresser les fichiers et préparer l'environnement
 
-```bash       
-├── examen_bentoml          
-│   ├── data       
-│   │   ├── processed      
-│   │   └── raw           
-│   ├── models      
-│   ├── src       
-│   └── README.md
+```bash
+# Décompresser les données si nécessaire
+unzip data/admissions.zip -d data/raw
+
+# Installer les dépendances Python
+pip install -r requirements.txt
+
+# Installer BentoML (si ce n'est pas déjà fait)
+pip install bentoml
 ```
 
-Afin de pouvoir commencer le projet vous devez suivre les étapes suivantes:
+### 2. Construire et lancer l'API containerisée avec BentoML
 
-- Forker le projet sur votre compte github
+```bash
+# Construire l'image BentoML (remplacez 'admission_service:latest' par le nom de votre service si besoin)
+bentoml build
 
-- Cloner le projet sur votre machine
+# Containeriser l'API (crée une image Docker)
+bentoml containerize admission_service:latest
 
-- Récuperer le jeu de données à partir du lien suivant: [Lien de téléchargement]( https://datascientest.s3-eu-west-1.amazonaws.com/examen_bentoml/admissions.csv)
+# Lancer le conteneur Docker (remplacez le tag si besoin)
+docker run -it --rm -p 3000:3000 admission_service:latest
+```
 
+### 3. Exécuter les tests unitaires
 
-Bon travail!
+#### Avec unittest :
+```bash
+python -m unittest discover -s examen_bentoml/tests
+```
+
+#### Avec pytest (Deliverable 3) :
+```bash
+pytest examen_bentoml/tests
+```
+
+Tous les tests doivent retourner le statut **PASSED**.
