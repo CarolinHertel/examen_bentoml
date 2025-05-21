@@ -1,0 +1,23 @@
+# local packages
+
+
+# external requirements
+click
+Sphinx
+coverage
+#awscli>=1.29.0
+flake8
+pandas
+#logging
+numpy 
+pathlib 
+scikit-learn
+imbalanced-learn
+joblib
+env
+bentoml
+fastapi
+fastapi.security
+jwt
+pytest
+pydantic>=2.0.0
