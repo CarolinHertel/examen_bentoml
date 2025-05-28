@@ -4,6 +4,13 @@
 set -e
 
 echo "🔄 Activating virtual environment..."
+virtualenv bentoml-env
+if [ ! -d "bentoml-env" ]; then
+    echo "Creating virtual environment..."
+    virtualenv bentoml-env
+else
+    echo "Virtual environment already exists."
+fi
 source bentoml-env/bin/activate
 
 
