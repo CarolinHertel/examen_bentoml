@@ -30,6 +30,6 @@ python:
     - pytest
 
 docker:
-  python_version: "3.13"
+  python_version: "3.12"
   system_packages:
     - 'git'
