@@ -31,5 +31,6 @@ python:
 
 docker:
   python_version: "3.12"
+  setup_script: ""
   system_packages:
     - 'git'
