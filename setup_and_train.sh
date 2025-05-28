@@ -4,8 +4,8 @@
 set -e
 
 echo "🔄 Activating virtual environment..."
-virtualenv bentoml-virtenv
-source bentoml-virtenv/bin/activate
+virtualenv bentoml-env
+source bentoml-env/bin/activate
 
 
 echo "📦 Installing dependencies..."
