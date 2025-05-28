@@ -29,5 +29,7 @@ python:
     - numpy
     - pytest
 
-container:
-  base_image: "python:3.13-slim"
+docker:
+  python_version: "3.13"
+  system_packages:
+    - 'git'
