@@ -1,45 +1,75 @@
-# Examen BentoML
+# 🎓 Student Admission Prediction API with BentoML
 
-Ce repertoire contient l'architecture basique afin de rendre l'évaluation pour l'examen BentoML.
+This project demonstrates a machine learning pipeline and API for predicting student admission chances. It uses BentoML to package, serve, and containerize the model, allowing easy deployment and testing. The API is secured using JWT authentication and includes automated unit tests.
 
-## Deliverable 1: Instructions
+---
 
-### 1. Décompresser les fichiers et préparer l'environnement
+## 📁 Project Structure
+
+examen_bentoml/
+├── data/
+│ ├── raw/
+│ └── admissions.zip
+├── models/
+├── src/
+│ ├── train_model.py
+│ ├── generate_token.py
+│ └── service.py
+├── tests/
+│ └── test_api.py
+├── requirements.txt
+├── README.md
+
+
+---
+
+## 🚀 Getting Started
+
+### 1. 📦 Environment Setup
 
 ```bash
-# Décompresser les données si nécessaire
-unzip data/admissions.zip -d data/raw
+# Optional: Unzip the dataset
+unzip admissions.zip .
 
-# Installer les dépendances Python
+# Activate the virtual environment
+source bentoml-env/bin/activate
+
+# Navigate to the project directory
+cd examen_bentoml
+
+# Install dependencies
 pip install -r requirements.txt
 
-# Installer BentoML (si ce n'est pas déjà fait)
-pip install bentoml
-```
+### 2. Build and Containerize with BentoML
+cd src
 
-### 2. Construire et lancer l'API containerisée avec BentoML
-
-```bash
-# Construire l'image BentoML (remplacez 'admission_service:latest' par le nom de votre service si besoin)
+python python train_model.py
+# Build the Bento
 bentoml build
 
-# Containeriser l'API (crée une image Docker)
-bentoml containerize admission_service:latest
+# Containerize the Bento
+bentoml containerize examen_bentoml:latest
 
-# Lancer le conteneur Docker (remplacez le tag si besoin)
-docker run -it --rm -p 3000:3000 admission_service:latest
+# 🔍 Hint: If unsure about the Bento name, list all with:
+bentoml list
 ```
 
-### 3. Exécuter les tests unitaires
+### 3. Run the Docker Container
 
-#### Avec unittest :
-```bash
-python -m unittest discover -s examen_bentoml/tests
-```
+docker run --rm -d -p 3000:3000 examen_bentoml:1.0.0
 
-#### Avec pytest (Deliverable 3) :
-```bash
-pytest examen_bentoml/tests
-```
+# BentoML API will be available at `http://localhost:3000`
 
-Tous les tests doivent retourner le statut **PASSED**.
+### 5. Run the API Tests
+
+pytest tests/test_api.py
+
+# Expected output:
+
+=========================== test session starts ===========================
+...
+collected 3 items
+
+tests/test_api.py ...                                              [100%]
+
+============================ 3 passed in X.XXs ============================
