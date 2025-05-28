@@ -28,3 +28,6 @@ python:
     - requests
     - numpy
     - pytest
+
+container:
+  base_image: "python:3.13-slim"
