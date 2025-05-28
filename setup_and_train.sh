@@ -5,12 +5,6 @@ set -e
 
 echo "🔄 Activating virtual environment..."
 virtualenv bentoml-virtenv
-if [ ! -d "bentoml-virtenv" ]; then
-    echo "Creating virtual environment..."
-    virtualenv bentoml-virtenv
-else
-    echo "Virtual environment already exists."
-fi
 source bentoml-virtenv/bin/activate
 
 
