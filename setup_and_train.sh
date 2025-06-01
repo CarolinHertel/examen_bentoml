@@ -4,9 +4,9 @@
 set -e
 
 echo "🔄 Activating virtual environment..."
-virtualenv bentoml-env
-source bentoml-env/bin/activate
-cd examen_bentoml
+# virtualenv bentoml-env
+# source bentoml-env/bin/activate
+# cd examen_bentoml
 
 
 echo "📦 Installing dependencies..."
@@ -23,9 +23,9 @@ echo "🔄 Build bentoml..."
 bentoml build --version 1.0.0
 
 echo "Containerize 📦the Bento..."
-bentoml containerize examen_bentoml:1.0.0
+bentoml containerize admission_service:1.0.0
 
 echo "Run the Docker Container"
-docker run --rm -d -p 3000:3000 examen_bentoml:1.0.0
+docker run --rm -d -p 3000:3000 admission_service:1.0.0
 
 echo "✅ All steps completed successfully!"
