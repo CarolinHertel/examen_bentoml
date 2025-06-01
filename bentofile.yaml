@@ -14,20 +14,7 @@ include:
   - ".env"
 
 python:
-  packages:
-    - scikit-learn
-    - pandas
-    - fastapi
-    - fastapi.security
-    - pydantic>=2.0.0
-    - PyJWT
-    - python-dotenv
-    - bentoml
-    - transformers
-    - joblib
-    - requests
-    - numpy
-    - pytest
+  requirements_txt: "requirements.txt"
 
 docker:
   python_version: "3.12"
