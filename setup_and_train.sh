@@ -16,6 +16,7 @@ cd src
 
 echo "🚂 Training the model..."
 python train_model.py
+cd ..
 
 echo "🔄 Build bentoml..."
 bentoml build --version 1.0.0
