@@ -28,4 +28,5 @@ bentoml containerize admission_service:1.0.0
 echo "Run the Docker Container"
 docker run --rm -d -p 3000:3000 admission_service:1.0.0
 
+
 echo "✅ All steps completed successfully!"

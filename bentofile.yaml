@@ -12,6 +12,7 @@ include:
   - "models/"
   - "data/processed/"
   - ".env"
+  - "tests/"
 
 python:
   requirements_txt: "requirements.txt"
